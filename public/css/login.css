@@ -1,0 +1,73 @@
+/* Establece la fuente principal para todo el cuerpo del documento */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Color de fondo */
+    margin: 0; /* Quita el margen exterior del cuerpo */
+    padding: 0; /* Quita el relleno del cuerpo */
+    display: flex; /* Nuevo: Usa flexbox para centrar el formulario */
+    justify-content: center; /* Nuevo: Centra el formulario horizontalmente */
+    align-items: center; /* Nuevo: Centra el formulario verticalmente */
+    height: 100vh; /* Nuevo: Asegura que el cuerpo ocupe toda la altura de la ventana */
+}
+
+/* Estilos para los encabezados de nivel 1 */
+h1 {
+    color: #333; /* Color del texto */
+    text-align: center; /* Centra el texto */
+    margin-top: 0; /* Nuevo: Quita el margen superior */
+}
+
+/* Estilos para los formularios */
+form {
+    max-width: 700px; /* Nuevo: Ancho máximo del formulario aumentado */
+    background-color: #fff; /* Color de fondo del formulario */
+    padding: 40px; /* Relleno interior del formulario */
+    border-radius: 8px; /* Borde redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    opacity: 1; /* Nuevo: Inicialmente el formulario es transparente */
+    transform: translateY(50px); /* Nuevo: Inicialmente el formulario está desplazado hacia abajo */
+    animation: fadeInUp 0.5s ease forwards; /* Nuevo: Aplica la animación fadeInUp */
+}
+
+/* Estilos para los campos de texto, email y contraseña */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 22px); /* Ancho del campo considerando el padding y el borde */
+    padding: 10px; /* Relleno interior */
+    margin-bottom: 20px; /* Margen inferior */
+    border: 1px solid #ccc; /* Borde del campo */
+    border-radius: 4px; /* Borde redondeado */
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Nuevo: Añade una transición al color del borde y la sombra */
+}
+
+/* Nuevo: Cambia el color del borde y la sombra del campo de entrada cuando se enfoca */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #008080;
+    box-shadow: 0 0 10px rgba(0, 128, 128, 0.1);
+    animation: colorChange 1s infinite; /* Nuevo: Añade una animación de cambio de color */
+}
+
+/* Estilos para el botón de envío */
+button[type="submit"] {
+    background-color: #008080; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Borde redondeado */
+    padding: 12px 20px; /* Relleno interior */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    display: block; /* Muestra el botón como bloque */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+    transition: background-color 0.3s ease; /* Nuevo: Añade una transición al color de fondo */
+    animation: colorChange 2s infinite; /* Nuevo: Añade una animación de cambio de color */
+}
+
+/* Definición de la animación colorChange */
+@keyframes colorChange {
+    0% { background-color: #008080; }
+    50% { background-color: #20b2aa; }
+    100% { background-color: #008080; }
+}
