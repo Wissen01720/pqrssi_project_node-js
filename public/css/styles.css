@@ -1,6 +1,7 @@
 :root {
-    --primary-color: #007BFF; /* Azul */
-    --secondary-color: #6C757D; /* Gris */
+    --first-color: #fff;
+    --primary-color: #A5A462; /* Azul */
+    --secondary-color: #E1DE68; /* Gris */
     --background-color: #F8F9FA; /* Gris claro */
     --text-color: #212529; /* Casi negro */
     --error-color: #DC3545; /* Rojo */
@@ -20,29 +21,43 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
+    margin: 0;
+}
+
+.background-image {
+    background-image: url('/img/Fotografía-Sobre-_1_.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
-h1 {
-    color: var(--primary-color);
-    margin-bottom: 2rem;
+.color-text, .h1 {
+    background-color: #5EBDCE;
+    color: var(--first-color);
+    margin-bottom: 5rem;
     text-align: center;
     font-size: 2.25rem;
     text-shadow: 1px 1px 1px var(--light-grey);
+    border-radius: 30px;
 }
 
 a {
     text-decoration: none;
-    color: var(--background-color);
+    color: var(--dark-grey);
     display: inline-block;
     padding: 1rem 2rem;
     background-color: var(--secondary-color);

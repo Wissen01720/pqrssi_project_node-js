@@ -32,7 +32,7 @@ app.use(session({ // Configura las sesiones
 
 // Ruta principal
 app.get('/', (req, res) => {
-    res.render('index', { nombre: req.session.nombre }); // Renderiza la vista index y pasa el nombre de usuario de la sesión
+    res.render('index', { nombre: req.session.nombre, admin: req.session.isAdmin }); // Renderiza la vista index y pasa el nombre de usuario de la sesión
 });
 
 // Ruta de registro
@@ -58,6 +58,11 @@ app.post('/register', async (req, res) => {
                 });
         }
     });
+});
+
+// Ruta para regresar al index
+app.get('/back', (req, res) => {
+    res.redirect('/'); // Redirige a la página 'index.ejs' a través de la ruta '/'
 });
 
 // Ruta de inicio de sesión

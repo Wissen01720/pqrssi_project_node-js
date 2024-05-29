@@ -1,107 +1,146 @@
+:root {
+    --main-bg-color: #f9f9f9;
+    --form-bg-color: #fff;
+    --text-color: #333;
+    --input-border-color: #ccc;
+    --focus-border-color: #008080;
+    --button-bg-color: #008080;
+    --hover-button-bg-color: #20b2aa;
+    --regresar-button-bg-color: #20b2aa;
+    --regresar-hover-button-bg-color: #8453BB;
+}
+
 /* Establece la fuente principal para todo el cuerpo del documento */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
     margin: 0;
-    padding: 0;
-    display: flex; /* Añade flexbox para centrar el formulario */
-    justify-content: center; /* Centra el formulario horizontalmente */
-    align-items: center; /* Centra el formulario verticalmente */
-    height: 100vh; /* Asegura que el cuerpo ocupa toda la altura de la ventana */
 }
+
+.background-image {
+    background-image: url('/img/IMAGEN.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (orientation: landscape) {
+    .background-image {
+        background-position: center;
+        background-size: 100% 100%;
+    }
+}
+
 
 /* Estilos para los encabezados de nivel 1 */
 h1 {
-    color: #333; /* Color del texto */
-    text-align: center; /* Centra el texto */
-    margin-top: 50px; /* Margen superior */
-    transition: color 0.3s ease; /* Añade una transición al color del texto */
+    color: var(--text-color);
+    text-align: center;
+    margin-top: 0;
 }
 
-h1:hover {
-    color: #007bff; /* Cambia el color del texto al pasar el cursor sobre él */
+.formularios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Estilos para los formularios */
-form {
-    max-width: 500px; /* Ancho máximo del formulario aumentado */
-    margin: 0 auto; /* Centra el formulario horizontalmente */
-    background-color: #fff; /* Color de fondo del formulario */
-    padding: 20px; /* Relleno interior del formulario */
-    border-radius: 8px; /* Borde redondeado */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    transition: box-shadow 0.3s ease; /* Añade una transición a la sombra */
+form, output {
+    width: 300px;
+    background-color: var(--form-bg-color);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transform: translateY(50px);
+    animation: fadeInUp 0.5s ease forwards;
 }
 
-form:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el cursor sobre el formulario */
+.output{
+    display: flex;
+    justify-content: center;
 }
 
-/* Estilos para las etiquetas */
-label {
-    display: block; /* Muestra las etiquetas como bloques */
-    margin-bottom: 8px; /* Margen inferior */
-    color: #555; /* Color del texto */
+.buttons {
+    display: flex;
+    justify-content: space-between;
 }
 
-/* Estilos para los campos de texto, email, contraseña y textarea */
 input[type="text"],
 input[type="email"],
-input[type="password"],
-textarea {
-    width: calc(100% - 22px); /* Ancho del campo considerando el padding y el borde */
-    padding: 10px; /* Relleno interior */
-    margin-bottom: 20px; /* Margen inferior */
-    border: 1px solid #ccc; /* Borde del campo */
-    border-radius: 4px; /* Borde redondeado */
-    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
-    transition: border-color 0.3s ease; /* Añade una transición al color del borde */
+input[type="password"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
-input[type="password"]:focus,
-textarea:focus {
-    border-color: #007bff; /* Cambia el color del borde al enfocar el campo */
+input[type="password"]:focus {
+    border-color: var(--focus-border-color);
+    box-shadow: 0 0 10px rgba(0, 128, 128, 0.1);
+    animation: colorChange 1s infinite;
 }
 
-/* Estilos para el botón de envío */
-button[type="submit"] {
-    background: linear-gradient(90deg, #4b0082 0%, #710abb 100%); /* Añade un gradiente al botón */
+button[type="submit"],
+button[type="button"] {
     color: #fff;
     border: none;
     border-radius: 4px;
     padding: 12px 20px;
     cursor: pointer;
     display: block;
-    margin: 0 auto;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
+    animation: colorChange 2s infinite;
+}
+
+button[type="submit"] {
+    background-color: var(--button-bg-color);
 }
 
 button[type="submit"]:hover {
-    background: linear-gradient(90deg, #710abb 0%, #4b0082 100%); /* Invierte el gradiente al pasar el cursor sobre el botón */
+    background-color: var(--hover-button-bg-color);
 }
 
-/* Estilos para los enlaces */
-a {
-    display: block;
+button[type="button"] {
+    background-color: var(--regresar-button-bg-color);
+}
+
+button[type="button"]:hover {
+    background-color: var(--regresar-hover-button-bg-color);
+}
+
+.register-button {
+    display: flex;
+    font-weight: 400;
+    color: var(--form-bg-color);
     text-align: center;
-    margin-top: 20px;
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-    padding: 10px 0;
-    /* Añade una animación de balanceo al pasar el cursor sobre el enlace */
-    transition: all 0.3s ease;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color: #007bff;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    justify-content: center;
+    display: flex;
 }
 
-a:hover {
-    color: #4b0082;
-    /* Aumenta el tamaño del enlace y lo balancea al pasar el cursor sobre él */
-    transform: scale(1.1) rotate(-5deg);
-}
-
-a:hover:active {
-    /* Añade una interacción al hacer clic en el enlace */
-    transform: scale(1.1) rotate(5deg);
+@keyframes colorChange {
+    0% { background-color: var(--button-bg-color); }
+    50% { background-color: var(--hover-button-bg-color); }
+    100% { background-color: var(--button-bg-color); }
 }
